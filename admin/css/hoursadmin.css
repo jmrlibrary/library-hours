@@ -1,0 +1,61 @@
+body {
+	font-family: helvetica;
+	background-color: #FFFFFF;/*#01a9d0;*/
+	/*background-image: url("http://libraries.cua.edu/res/images/themes/red/bg-pagewrapper.jpg");*/
+	background-repeat:no-repeat;
+	}
+h2 {
+    border-bottom: 1px solid #fa7906;
+    font-size: 150%;
+    font-weight: normal;
+    margin: 0 0 10px;
+    padding: 3px 0;
+}
+a, a:visited {
+    color: #2574a9 !important;
+	text-decoration: none;
+}
+a:focus, a:hover, a:active {
+    color: #fa7906 !important;
+	text-decoration: underline;
+}
+tr.header {
+    background-color: #EEEDDB;
+    font-weight: bold;
+}
+tr.header td {
+    color: #000000;
+}
+tr.a {
+    vertical-align: top;
+}
+tr.b {
+    background-color: #EEEEEE;
+    vertical-align: top;
+}
+td.inconstant {
+	display: table-cell;
+}
+div.col1 {
+	float: left;
+	}
+div.col2 {
+	float: right;
+	}
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+.colorwell {
+     border: 2px solid #fff;
+     width: 6em;
+     text-align: center;
+     cursor: pointer;
+   }
+body .colorwell-selected {
+     border: 2px solid #000;
+     font-weight: bold;
+   }

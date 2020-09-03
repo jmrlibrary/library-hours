@@ -1,0 +1,11 @@
+name: hours
+recipe: lamp
+config:
+  php: '7.4'
+  webroot: .
+services:
+  database:
+    creds:
+      user: hours
+      password: hours
+      database: hours

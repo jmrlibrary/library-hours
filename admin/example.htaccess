@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "hoursuser"
+AuthUserFile "/admin/passwordfile.txt"
+require valid-user

@@ -55,7 +55,7 @@ background - background color, defaults to unset
 
 You can embed the output in an iframe on your website.  You can also output JSON and write scripts or use the provided scripts to use the data on other sites.
 
-Provided scripts - See demos on test.html - These won't work until your hours database is set up and working and they assume JMRL libraries
+Provided scripts - See demos on test.html - These are all pulling from my server so it will show JMRL's hours (or won't work at all, depending) so be sure to modify the JavaScript files to pull from your server instead.
 
 hoursdropdown.js - Today's hours for each library in a Bootstrap 3 dropdown menu
 todaytomorrow.js - Today's and tomorrow's hours for one library

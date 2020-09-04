@@ -4,7 +4,7 @@ function alllibraryalert(testdate) {
 		testdate = "";
 	}
 $.ajax({
-			url: "https://jmrl.org/hours/checkclosing.php?testdate=" + testdate,
+			url: "https://hestia.jmrl.org/hours/checkclosing.php?testdate=" + testdate,
 		 
 			// The name of the callback parameter
 			jsonp: "callback",

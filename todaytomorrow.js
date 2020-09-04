@@ -3,7 +3,7 @@ function todaytomorrow(lib) {
 		testdate = "";
 	}
 	$.ajax({
-		url: "/hours/hoursdisplay.php?json=1&daycount=2&name=1&lib=" + lib + "&testdate=" + testdate,
+		url: "https://hestia.jmrl.org/hours/hoursdisplay.php?json=1&daycount=2&name=1&lib=" + lib + "&testdate=" + testdate,
 		jsonp: "callback",
 		dataType: "jsonp",
 		success: function( response ) {

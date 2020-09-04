@@ -4,7 +4,7 @@ if (testdate == null) {
 		testdate = "";
 	}
 $.ajax({
-	url: "/hours/hoursdisplay.php?json=1&daycount=1&name=1&testdate=" + testdate,
+	url: "https://hestia.jmrl.org/hours/hoursdisplay.php?json=1&daycount=1&name=1&testdate=" + testdate,
 	jsonp: "callback",
 	dataType: "jsonp",
 	success: function( response ) {

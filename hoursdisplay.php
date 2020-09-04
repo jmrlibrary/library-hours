@@ -6,12 +6,10 @@
 //It will assume 5-1-2019 1/5/2019 are both January 5.
 
 include('admin/config.php');
+$cssfile = '';
 if ($_GET["cssfile"] == 1) {
 	$cssfile = "hoursdisplay.css";
 	}
-else {
-	$cssfile = '';
-}
 if ($_GET["fontsize"] == NULL){
 	$fontsize = "16px;";}
 else{
@@ -119,7 +117,11 @@ if (($_GET["lib"] == NULL) OR ($_GET["lib"] == 'all')) {
 	$libraries = array(1,2,3,4,5,6,7,8);
 }
 else{
-	$libraries = array($_GET["lib"]);}
+	$libraries = array();
+	foreach(explode(",", urldecode($_GET["lib"])) as $library) {
+		$libraries[] = $library;
+	}
+}
 $jsonsched = array();
 //For each library...
 foreach ($libraries as $library) {

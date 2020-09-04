@@ -1,3 +1,68 @@
-<div id="hoursdata"></div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="hourstoday2.js" ></script>
+
+<h1>Hours examples</h1>
+<h2>Hoursdropdown.js</h2>
+
+<div class="btn-group headerbutton"><button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button"><span aria-label="Hours" class="fa fa-clock-o visible-xs-inline-block">&nbsp;</span><span class="hidden-xs">Hours</span> <span class="caret">&nbsp;</span></button>
+<ul class="dropdown-menu livehoursdropdown" role="menu">
+	<li class="divider" role="separator">&nbsp;</li>
+	<li><a href="hoursdisplay.php?name=1&cssfile=1">See full schedule</a></li>
+</ul>
+</div>
+
+<h2>Todaytomorrow.js</h2>
+<div id="hourstodaytomorrow"></div>
+<script src="todaytomorrow.js" ></script>
+<h2>Alllibraryalert.js</h2>
+<p>Showing Christmas.  Use ?testdate=date to see another date, for example <a href="?testdate=9/07/2020">Labor Day</a>.  No alert will show if there are no closings or special hours.</p>
+<p>Edit this to match the number of libraries you have since it needs to know the title in order to figure out if all libraries are closed.</p>
+<div id="alertmessage2"><span></span></div>
+<h2>Branchlibraryalert.js</h2>
+<p>Showing Christmas by default.  Use ?testdate=date to see another date, for example <a href="?testdate=9/07/2020">Labor Day</a>.  No alert will show if there are no closings or special hours.</p>
+<div id="alertmessage"><span></span></div>
+<script src="alllibraryalert.js"></script>
+<script src="branchlibraryalert.js"></script>
+<script>
+function getParameterByName(name) {
+  name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+  var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+      results = regex.exec(location.search);
+  return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+var testdate = getParameterByName("testdate");
+//Add today and tomorrow's hours for library 1 (ie Central) to the element with ID hourstodaytomorrow:
+todaytomorrow(1);
+//Don't try to do more than one library.
+</script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!--Add the hours dropdown menu - needs JQuery and Bootstrap to come first-->
+<script src="hoursdropdown.js" ></script>
+<script>
+//Set testdate to Christmas if it's not set to anything so that alerts will show up
+if (testdate == '') {
+	testdate = "12/25/2020";
+}
+//Display all library alert in the element with ID alertmessage2
+alllibraryalert(testdate);
+//Display library alert for Nelson in the element with ID alertmessage1
+branchlibraryalert("Nelson Memorial Library",testdate);
+</script>
+<style>
+#alertmessage, #alertmessage2 {
+    display: none;
+    background-color: #ffafaf;
+    color: black;
+    width: 110%;
+    padding: 15px 2.5%;
+    /*position: relative;
+    top: -5px;
+    left: -3%;*/
+    font-weight: bold;
+	border-top: 3px solid red;
+    border-bottom: 3px solid red;
+}
+</style>

@@ -25,6 +25,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `Alert`
+--
+
+CREATE TABLE `Alert` (
+  `LibID` int(11) NOT NULL,
+  `StartDate` date NOT NULL,
+  `EndDate` date NOT NULL,
+  `Message` varchar(300) NOT NULL,
+  `AlertID` smallint(6) NOT NULL,
+  `SameForAll` tinyint(1) NOT NULL,
+  `Name` varchar(60) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Alert`
+--
+
+INSERT INTO `Alert` (`LibID`, `StartDate`, `EndDate`, `Message`, `AlertID`, `SameForAll`, `Name`) VALUES
+(6, '2020-02-29', '2020-03-14', 'Nelson Library is closed for renovations February 29th - March 14th.', 1, 1, 'Nelson Renovation');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `Libraries`
 --
 
@@ -673,6 +696,12 @@ INSERT INTO `Special` (`SpecialID`, `HolName`, `LibID`, `SpecialDate`, `OpenTime
 --
 
 --
+-- Indexes for table `Alert`
+--
+ALTER TABLE `Alert`
+  ADD PRIMARY KEY (`AlertID`);
+
+--
 -- Indexes for table `Libraries`
 --
 ALTER TABLE `Libraries`
@@ -710,6 +739,12 @@ ALTER TABLE `Special`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `Alert`
+--
+ALTER TABLE `Alert`
+  MODIFY `AlertID` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `Libraries`

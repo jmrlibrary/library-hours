@@ -20,7 +20,7 @@ $.ajax({
 					var holidayname;
 					if (response["closed"] && response["closed"]["today"]) {
 						var countclosed = response["closed"]["today"].length;
-						if (countclosed == 8) { 
+						if (countclosed >= 8) { 
 							alertmessage += "All libraries are closed for " + response["Central Library"]["today"]["name"] + " (" + response["Central Library"]["today"]["date"] + ").";
 						} else {
 							$.each(response["closed"]["today"], function (i , value) {
@@ -74,7 +74,7 @@ $.ajax({
 					var alertmessage = '<b>TOMORROW:</b> ';
 					if (response["closed"] && response["closed"]["tomorrow"]) {
 						var countclosed = response["closed"]["tomorrow"].length;
-						if (countclosed == 8) { 
+						if (countclosed >= 8) { 
 							alertmessage += "All libraries will be closed for " + response["Central Library"]["tomorrow"]["name"] + " (" + response["Central Library"]["tomorrow"]["date"] + ").";
 						} else {
 							$.each(response["closed"]["tomorrow"], function (i , value) {

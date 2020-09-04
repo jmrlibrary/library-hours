@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "intranet"
-AuthUserFile "/home/jmrltechhelp/.htpasswds/hours"
-require valid-user

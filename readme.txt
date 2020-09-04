@@ -7,9 +7,9 @@ Create a new database.  Probably you have a user interface for this like PHPMyAd
 Use commands:
 CREATE DATABASE hours; (or whatever you're naming it)
 
-Then run provided SQL file with base hours.
+Then edit provided SQL file (admin/sample_data.sql) to match your library's situation.  Run it on your new database.
 
-Then create a user to access the database:
+Next create a user to access the database:
 CREATE USER 'hours'@'localhost' IDENTIFIED BY 'password'; (Please change the password)
 
 Give the user privileges:
@@ -17,7 +17,7 @@ GRANT SELECT, INSERT, DELETE, UPDATE ON `hours`. * TO 'hours'@'localhost';
 
 Find sample.oonfig.php in hours/admin and create a copy called called config.php.  Update your database name, username, and password here.
 
-Restrict admin folder using directions here: https://help.dreamhost.com/hc/en-us/articles/216363187-Password-protecting-your-site-with-an-htaccess-file  If it doesn't seem to work and you have already restarted Apache, it might be that you need to change the Apache configuration to Allow Override All and then restart again.
+Restrict access to admin folder.  One way to do it: https://help.dreamhost.com/hc/en-us/articles/216363187-Password-protecting-your-site-with-an-htaccess-file  If it doesn't seem to work and you have already restarted Apache, it might be that you need to change the Apache configuration to Allow Override All and then restart again.
 
 To configure:
 

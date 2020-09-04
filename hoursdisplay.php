@@ -63,15 +63,7 @@ $htmlstring = '<head><meta name="viewport" content="width=device-width, initial-
 		tr.a  {vertical-align: top; background-color: ' . $odd .'}
 		tr.b  {vertical-align: top;
 		background-color: ' . $even .'}</style><link rel="stylesheet" type="text/css" href="' . $cssfile . '"></head>';
-$addresses = array (	"Central Library" => '201 East Market Street <br>Charlottesville, VA 22902 (<a href="https://goo.gl/maps/BEB5fsLQZY92">map</a>)<br><a href="tel:4349797151">434.979.7151</a>',
-	"Crozet Library" => '2020 Library Avenue<br>Crozet, VA 22932 (<a href="https://goo.gl/maps/TvoaiCeDkFm">map</a>)<br><a href="tel:4348234050">434.823.4050</a>',
-	"Gordon Avenue Library" => '1500 Gordon Avenue<br>Charlottesville, Virginia 22903 (<a href="https://goo.gl/maps/vRPgEWahGL22">map</a>)<br><a href="tel:4342965544">434.296.5544</a>',
-	"Greene County Library" => '222 Main Street<br>Stanardsville, VA 22973 (<a href="https://goo.gl/maps/Z59bfGoFToo">map</a>)<br><a href="tel:4349855227">434.985.5227</a>',
-	"Louisa County Library" => '881 Davis Highway<br>Mineral, VA 23117 (<a href="https://goo.gl/maps/wTSTQY8nL9E2">map</a>)<br><a href="tel:5408945853">540.894.5853</a>',
-	"Nelson Memorial Library" => '8521 Thomas Nelson Highway P. O. Box 321<br>Lovingston, VA 22949-0321 (<a href="http://goo.gl/maps/qq0c5">map</a>)<br><a href="tel:434 2635904">434. 263.5904</a>',
-	"Northside Library" => '705 West Rio Road<br>Charlottesville, VA 22901 (<a href="https://goo.gl/maps/tA9F6ag4VKr">map</a>)<br><a href="tel:434 9737893">434. 973.7893</a><br>',
-	"Scottsville Library" => '330 Bird Street<br>Scottsville, VA 24590-0759 (<a href="https://goo.gl/maps/BS82nNzieAP2">map</a>)<br><a href="tel:4342863541">434.286.3541</a>'
-);
+$addresses = addressarray;
 //Functions:
 function mysqli_fetch_rowsarr($result, $numass=MYSQLI_BOTH) {
   $i=0;
@@ -114,7 +106,7 @@ while ($row = mysqli_fetch_array($semresult)) {
 	$semdates[] = array($row['SemID'], $row['DayStart'], $row['DayEnd']);}
 //Get selected library and put it in an array.  Get all libraries if no selection made.
 if (($_GET["lib"] == NULL) OR ($_GET["lib"] == 'all')) {
-	$libraries = array(1,2,3,4,5,6,7,8);
+	$libraries = locationsarray;
 }
 else{
 	$libraries = array();

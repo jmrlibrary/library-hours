@@ -1,5 +1,6 @@
 <head>
-<title>JMRL Hours Tool--Regular Hours</title>
+<?php include('config.php');?>
+<title><?=librarysystemname?> Hours Tool--Regular Hours</title>
 <link type="text/css" href="css/hoursadmin.css" rel="stylesheet" />
 <link type="text/css" href="css/smoothness/jquery-ui-1.8.20.custom.css" rel="stylesheet" />
 <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
@@ -62,10 +63,9 @@
 </script>
 <br/>
 <div style="background-color:white; margin-left:8%; margin-right:25%;">
-<h2><a href="hoursmenu.php">JMRL Hours Tool</a></h2>
+<h2><a href="hoursmenu.php"><?=librarysystemname?> Hours Tool</a></h2>
 <br/>
 <?php
-include('config.php');
 //Connect to database
 $con = mysqli_connect(databasehost, databaseuser, databasepassword, databasename);
 if (!$con) {
@@ -190,7 +190,7 @@ else {
 			echo '<p style="color:#00CC00;">Semester schedule has been updated for ' . $libname[0] . '.</p>';}
 		else {echo '<p style="color:red;">Schedule update could not complete.  Not all changes have been saved.</p>';}
 	}
-	$libraries = array(1,2,3,4,5,6,7,8,9);
+	$libraries = locationsarray;
 	$days = array(0,1,2,3,4,5,6);
 	//For each library
 	$class = "a";

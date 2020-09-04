@@ -1,5 +1,6 @@
 <head>
-<title>JMRL Hours Tool--Edit Semesters</title>
+<?php include('config.php');?>
+<title><?=librarysystemname?> Hours Tool--Edit Semesters</title>
 <!--CSS and javascript link for calendar date-picker:-->
 <link type="text/css" href="css/hoursadmin.css" rel="stylesheet" />
 <link type="text/css" href="css/smoothness/jquery-ui-1.8.20.custom.css" rel="stylesheet" />
@@ -45,7 +46,7 @@
 </script>
 <br/>
 <div style="background-color:white; margin-left:8%; margin-right:25%;">
-<h2><a href="hoursmenu.php">JMRL Hours Tool</a></h2>
+<h2><a href="hoursmenu.php"><?=librarysystemname?> Hours Tool</a></h2>
 <br/>
 <?php
 include('config.php');

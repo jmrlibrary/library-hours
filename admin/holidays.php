@@ -1,5 +1,6 @@
 <head>
-<title>JMRL Hours Tool--Holidays and Special Hours</title>
+<?php include('config.php');?>
+<title><?=librarysystemname?> Hours Tool--Holidays and Special Hours</title>
 <link type="text/css" href="css/hoursadmin.css" rel="stylesheet" />
 <link type="text/css" href="css/smoothness/jquery-ui-1.8.20.custom.css" rel="stylesheet" />
 <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
@@ -127,10 +128,9 @@
 <body>
 <br/>
 <div style="background-color:white; margin-left:5%; margin-right:5%;height:100%">
-<h2><a href="hoursmenu.php">JMRL Hours Tool</a></h2>
+<h2><a href="hoursmenu.php"><?=librarysystemname?> Hours Tool</a></h2>
 <br/>
 <?php
-include('config.php');
 //Connect to database
 $con = mysqli_connect(databasehost, databaseuser, databasepassword, databasename);
 if (!$con) {
@@ -200,7 +200,7 @@ function newchecktime($data) {
     }
 }
 //Put all Library IDs and names into an array.
-$alllibs = array(array(1, 'Central Library'),array(2, 'Crozet Library'), array(3, 'Gordon Avenue Library'), array(4, 'Greene County Library'), array(5, 'Louisa County Library'), array(6, 'Nelson Memorial Library'), array(7, 'Northside Library'), array(8, 'Scottsville Library'), array(9, 'Bookmobile'));
+$alllibs = alllibs;
 //Process input
 //New holiday:
 if ($_POST['oldholdate'] == 'new') {

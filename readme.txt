@@ -40,7 +40,7 @@ daycount - how many days to display (defaults to 7)
 testdate - if you want to see what it will display on a specific date
 lib -  which library to show.  Defaults to all. 1,3 will show libraries 1 and 3.  Numbers correspond to the Lib_ID in the database.
 name - shows library names
-address - shows library addresses - these are hardcoded in hoursdisplay.php starting line 66 because I got lazy.  You will need to edit that file if you want to use addresses.
+address - shows library addresses - Set these up in the config file.
 
 If you aren't using the CSS file:
 fontsize - value in pixels, defaults to 16px (don't include px)
@@ -55,7 +55,7 @@ background - background color, defaults to unset
 
 You can embed the output in an iframe on your website.  You can also output JSON and write scripts or use the provided scripts to use the data on other sites.
 
-Provided scripts - See demos on test.html - These are all pulling from my server so it will show JMRL's hours (or won't work at all, depending) so be sure to modify the JavaScript files to pull from your server instead.
+Provided scripts - See demos on test.html - These are all pulling from my server so it will show JMRL's hours (or won't work at all, depending) so be sure to modify the JavaScript files to pull from your server instead.  You also need to modify them to reflect your library's name.
 
 hoursdropdown.js - Today's hours for each library in a Bootstrap 3 dropdown menu
 todaytomorrow.js - Today's and tomorrow's hours for one library

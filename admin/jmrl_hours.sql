@@ -88,7 +88,8 @@ CREATE TABLE `Schedule` (
   `CloseTime` time DEFAULT '23:30:00',
   `Closed` tinyint(1) NOT NULL DEFAULT '0',
   `Appointment` tinyint(1) NOT NULL DEFAULT '0',
-  `Open24` tinyint(1) NOT NULL DEFAULT '0'
+  `Open24` tinyint(1) NOT NULL DEFAULT '0',
+  `Notes` varchar(50) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --

@@ -164,6 +164,7 @@ foreach ($libraries as $library) {
 		$twentyfour = NULL;
 		$holname = NULL;
 		$jsonstatus = NULL;
+		$notes = NULL;
 		//Check if it's a holiday.  If so, get special hours.
 		$success = 1;
 		$jsonoutput[$library][$jsoncounter]['day'] = date('l', strtotime($date));
@@ -201,7 +202,12 @@ foreach ($libraries as $library) {
 					$opentime = formattime($schedarray[$dayofweek]['OpenTime']);
 					$closetime = formattime($schedarray[$dayofweek]['CloseTime']);
 					if ($schedarray[$dayofweek]['Open24'] == 1) {
-						$twentyfour = 1;}}}
+						$twentyfour = 1;}
+					}
+				if ($schedarray[$dayofweek]['Notes'] != NULL) {
+					$notes = $schedarray[$dayofweek]['Notes'];
+				}
+			}
 			else {
 				$success = 0;}
 			}
@@ -216,6 +222,7 @@ foreach ($libraries as $library) {
 				}
 				else {
 					$jsonoutput[$library][$jsoncounter]['holidayname'] = 'Regular Hours';
+					$jsonoutput[$library][$jsoncounter]['notes'] = $notes;
 				}
 				if ($closed == 1) {
 					$htmlstring .=  "Closed";
@@ -226,12 +233,15 @@ foreach ($libraries as $library) {
 					}
 				elseif ($byapp == 1) {
 					$htmlstring .= "Hours by appointment";
-					$jsonoutput[$library][$jsoncounter]['hours'] = "Hours by appointment";}
+					$jsonoutput[$library][$jsoncounter]['hours'] = "Hours by appointment";
+					}
 				else {
 						$htmlstring .=  $opentime . " - " . $closetime;
 						$jsonoutput[$library][$jsoncounter]['hours'] = $opentime . " - " . $closetime;
 						if ($holname != NULL){
 							$htmlstring .= " for " . $holname;
+						} else if ($notes != NULL) {
+							$htmlstring .= " <span class='notes'>$notes</span>";
 						}
 						$htmlstring .= '</td></tr>';
 					}

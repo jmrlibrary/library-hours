@@ -177,7 +177,12 @@ else {
 				else {$app = ", Appointment = 0";}
 				if ($_POST['status:' . $i] == "Open24") {$open24 = ", Open24 = 1";}
 				else {$open24 = ", Open24 = 0";}
-				$status = $closed . $app . $open24;
+				if ($_POST['notes:' . $i]) {
+					$notes = ", Notes = '" . mysqli_real_escape_string($con, $_POST['notes:' . $i]) . "'";
+				} else {
+					$notes = ", Notes = NULL";
+				}
+				$status = $closed . $app . $open24 . $notes;
 				$schedupdatequery = 'update Schedule set OpenTime = "' . sqltime($_POST['start:' . $i]) . '", CloseTime = "' . sqltime($_POST['end:' . $i]) . '"' . $status . ' where SemID = ' . $semester[0] . ' and Day = ' . $i . ' and LibID = ' . $_POST['library'];
 				$schedupdateresult = mysqli_query($con,$schedupdatequery);
 				if ($schedupdateresult) {
@@ -206,7 +211,7 @@ else {
 			//Flip table class
 			if ($class == 'a'){$class = 'b';}
 			else {$class = 'a';}
-			$schedquery = "select Day, OpenTime, CloseTime, Closed, Appointment, Open24, LibID, Day, SemID from Schedule where LibID = " . $library . " and Day = " . $day . " and SemID = " . $semester[0];
+			$schedquery = "select Day, OpenTime, CloseTime, Closed, Appointment, Open24, LibID, Day, SemID, Notes from Schedule where LibID = " . $library . " and Day = " . $day . " and SemID = " . $semester[0];
 			echo "<script>console.log('" . $schedquery . "');</script>";
 			$schedresult = mysqli_query($con,$schedquery);
 			$schedule = mysqli_fetch_array($schedresult);
@@ -221,7 +226,8 @@ else {
 			echo '<td><input name="status:' . $day . '" onclick="mutuallyexclusive(\'' . $day . $library . '\')" class="mutuallyexclusive' . $day . $library . '" id="appointment' . $library . $day . '" type="checkbox" value="Appointment" ' . $checked . '>By appointment</td>';
 			if ($schedule['Open24'] == 1) {$checked = 'checked';}
 			else {$checked = NULL;}
-			echo '<td><input name="status:' . $day . '" onclick="mutuallyexclusive(\'' . $day . $library . '\')" class="mutuallyexclusive' . $day . $library . '" id="open24' . $library . $day . '" type="checkbox" value="Open24" ' . $checked . '>Open 24 hours</td></tr>';
+			echo '<td><input name="status:' . $day . '" onclick="mutuallyexclusive(\'' . $day . $library . '\')" class="mutuallyexclusive' . $day . $library . '" id="open24' . $library . $day . '" type="checkbox" value="Open24" ' . $checked . '>Open 24 hours</td>';
+			echo '<td>Notes: <input name="notes:' . $day . '" id="notes' . $library . $day . '" type="text" maxlength="50" size="30" value="' . $schedule['Notes'] . '"></td></tr>';
 		}
 		echo '<tr><td></td><td></td><td></td><td></td><td></td><td><input type="hidden" name="library" value="' . $library . '"><input type="hidden" name="season" value ="' . $_POST['season'] . '"><input type="submit" value="Go!"></form></td></tr>';
 		echo '</table>';

@@ -229,6 +229,8 @@ foreach ($libraries as $library) {
 					$jsonoutput[$library][$jsoncounter]['hours'] = "Closed";
 						if ($holname != NULL){
 							$htmlstring .= " for " . $holname;
+						} else if ($notes != NULL) {
+							$htmlstring .= " <span class='notes'>$notes</span>";
 						}
 					}
 				elseif ($byapp == 1) {

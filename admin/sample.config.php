@@ -17,4 +17,5 @@ define('addressarray', array (	"Simpson Library" => '1801 College Ave <br>Freder
 	"HCC Desk" => 'HCC Bridge'
 )); //Change to match the number of libraries you have/their addresses/any non-address stuff you want to display
 define('alllibs', $alllibs = array(array(1, 'Simpson Library'),array(2, 'Special Collections'), array(3, 'ThinkLab'), array(4, 'HCC'))); //Because for some reason Holidays can't just get the name from the database
+define('shortnames', array("Central", "Crozet", "Gordon", "Greene", "Louisa", "Nelson", "Northside", "Scottsville", "Bookmobile")); //Used by List Holidays
 ?>

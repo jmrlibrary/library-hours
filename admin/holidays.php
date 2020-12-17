@@ -204,7 +204,7 @@ $alllibs = alllibs;
 //Process input
 //New holiday:
 if ($_POST['oldholdate'] == 'new') {
-	$holidayname = stripslashes($_POST['newname']);
+	$holidayname = strip_tags(urldecode(stripslashes($_POST['newname'])),"<br><i><a><b>");
 	$holidaydate = $_POST['newdate'];
 	$failure = 0;
 	//Validate data
@@ -315,7 +315,7 @@ if ($_POST['oldholdate'] == 'new') {
 }
 //Update database for changes to existing holidays
 elseif ($_POST['oldholdate'] != NULL) {
-	$holidayname = stripslashes($_POST['oldholname']);
+	$holidayname = strip_tags(urldecode(stripslashes($_POST['oldholname'])),"<br><i><a><b>");
 	$olddate = $_POST['oldholdate'];
 	$newdate = $_POST['holdate:' . $olddate];
 	//Validate data

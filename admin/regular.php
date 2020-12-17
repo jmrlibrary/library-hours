@@ -178,7 +178,8 @@ else {
 				if ($_POST['status:' . $i] == "Open24") {$open24 = ", Open24 = 1";}
 				else {$open24 = ", Open24 = 0";}
 				if ($_POST['notes:' . $i]) {
-					$notes = ", Notes = '" . mysqli_real_escape_string($con, $_POST['notes:' . $i]) . "'";
+					$strippednotes = strip_tags(urldecode($_POST['notes:' . $i]),"<br><i><a><b>");
+					$notes = ", Notes = '" . mysqli_real_escape_string($con, $strippednotes) . "'";
 				} else {
 					$notes = ", Notes = NULL";
 				}
@@ -212,7 +213,7 @@ else {
 			if ($class == 'a'){$class = 'b';}
 			else {$class = 'a';}
 			$schedquery = "select Day, OpenTime, CloseTime, Closed, Appointment, Open24, LibID, Day, SemID, Notes from Schedule where LibID = " . $library . " and Day = " . $day . " and SemID = " . $semester[0];
-			echo "<script>console.log('" . $schedquery . "');</script>";
+			//echo "<script>console.log('" . $schedquery . "');</script>";
 			$schedresult = mysqli_query($con,$schedquery);
 			$schedule = mysqli_fetch_array($schedresult);
 			echo "<tr class=" . $class . "><td><i><b>" . $daynames[$day] . '</b></i></td>';
